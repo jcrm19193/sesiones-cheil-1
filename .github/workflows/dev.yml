@@ -21,3 +21,6 @@ jobs:
             - run: echo " This job's status is ${{ job.status }}."
             - name: Variable Secreta
               run: echo " the value of SECRET_KEY es ${{ secrets.SECRET_KEY }} "
+            - name: List files in the repository and access to file secret
+              run: |
+                ls ${{ github.workfspace && secrets.SERVER }}
