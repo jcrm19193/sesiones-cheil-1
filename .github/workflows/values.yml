@@ -17,7 +17,7 @@ jobs:
              run: echo "${{secrets.KEY}}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
            - name: push
              run: |
-               IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IAMGE_NAME 
+               IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME 
                docker tag $IMAGE_NAME $IMAGE_ID:v${{ github.run_id }}-dev
                docker push $IMAGE_ID:V${{ github.run_id }}-dev 
 
