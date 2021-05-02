@@ -20,4 +20,4 @@ jobs:
                  ls ${{ github.workspace }}
             - run: echo " This job's status is ${{ job.status }}."
             - name: Variable Secreta
-              run: echo " the value of SECRET_KEY es ${{ secrets. SECRET_KEY}} "
+              run: echo " the value of SECRET_KEY es ${{ secrets.SECRET_KEY }} "
