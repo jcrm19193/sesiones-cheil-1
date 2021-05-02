@@ -6,7 +6,7 @@ on:
 env:
    IMAGE_NAME: custom
 
- jobs:
+jobs:
     Explore-Github-Actions:
         runs-on: ubuntu-latest
         steps:
