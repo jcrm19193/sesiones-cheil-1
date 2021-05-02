@@ -20,6 +20,7 @@ jobs:
                IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME 
                docker tag $IMAGE_NAME $IMAGE_ID:v${{ github.run_id }}-dev
                docker push $IMAGE_ID:v${{ github.run_id }}-dev 
+           
 
 
 # ${{ secrets.KEY }}
