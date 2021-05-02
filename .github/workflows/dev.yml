@@ -2,7 +2,7 @@ name: Github Actions Demo
 on:
     push:
         branches:
-            dev
+            master
 
 jobs:
     Explore-Github-Actions:
