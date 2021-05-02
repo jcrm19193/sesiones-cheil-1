@@ -3,10 +3,23 @@ on:
     push:
         branches:
             master
-
+env:
+   IMAGE_NAME: custom
 
  jobs:
     Explore-Github-Actions:
         runs-on: ubuntu-latest
         steps:
-           - run: echo " The job was automatically triggered by a ${{ github.event_name}} event."
+           - run: actions/checkout@v2
+           - name: Build image
+             run: docker build . --file Dockerfile --tag $IMAGE_NAME
+           - name: Loggin
+             run: echo "${{secrets.KEY}}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+           - name: push
+             run: |
+               IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IAMGE_NAME 
+               docker tag $IMAGE_NAME $IMAGE_ID:v${{ github.run_id }}-dev
+               docker push $IMAGE_ID:V${{ github.run_id }}-dev 
+
+
+# ${{ secrets.KEY }}
